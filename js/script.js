@@ -16,20 +16,20 @@ const data = [
 		EDFPoints: 2
 	},
 	{
-		question: 'Gosto de Matemática',
-		radioButtonType: 'muito/pouco',
-		ADMPoints: 1,
+		question: 'Sou criativo',
+		radioButtonType: 'sim/nao',
+		ADMPoints: 3,
 		DSPoints: 2,
-		MECAPoints: 3,
+		MECAPoints: 1,
 		EDFPoints: 1
 	},
 	{
-		question: 'Lido bem com Pessoas',
-		radioButtonType: 'sim/nao',
-		ADMPoints: 3,
+		question: 'Gosto de desenhar',
+		radioButtonType: 'muito/pouco',
+		ADMPoints: 1,
 		DSPoints: 1,
-		MECAPoints: 1,
-		EDFPoints: 2
+		MECAPoints: 3,
+		EDFPoints: 4
 	}
 
 ]
