@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Que Curso eu Faço?</title>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./resultado-curso.css">
+    <script>
+        function redirect(){
+            window.location.href = '../index.html'
+        }
+    </script>
+    <title>Mecatrônica</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<span>
+				<img id="img-navbar" src="../assets/logo-colorida-simples.png">
+				<h1>Que Curso eu Faço?</h1>
+			</span>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">O Quiz</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="#">Página Inicial</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Sobre o Desenvolvedor</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <main>
+        <h1>Você faria</h1>
+        <img src="../assets/meca.png" alt="" srcset="">
+        
+        <p class="course-description">
+            Escolher Mecatrônica é uma decisão incrível e mostra que você tem um interesse notável na <strong>integração de sistemas mecânicos e eletrônicos.</strong> <br> <br>
+        
+            Sua escolha pelo curso de Mecatrônica destaca sua habilidade em lidar com desafios que exigem uma abordagem multidisciplinar. Este curso combina elementos da engenharia mecânica, eletrônica e de controle, e tenho certeza de que sua capacidade de pensar de forma holística será uma vantagem valiosa. <br> <br>
+            
+            Além disso, Mecatrônica exige criatividade e inovação, e estou certo de que você trará ideias frescas para resolver problemas complexos. Sua dedicação aos estudos e o interesse demonstrado na interseção entre mecânica e eletrônica são qualidades que certamente o destacarão no curso. <br> <br>
+            
+            Desejo a você muito sucesso nesta jornada acadêmica! Que ela seja repleta de aprendizado, descobertas e conquistas. Estou certo de que você aproveitará ao máximo essa oportunidade na Etec e construirá uma base sólida para uma carreira promissora em Mecatrônica.
+        </p>
+
+        <section class="courses-data">
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%; background-color: var(--meca);" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%; background-color: var(--ds);" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%; background-color: var(--adm);" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%; background-color: var(--edf);" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </section>
+        
+
+        <button class="btn btn-primary btn-lg submit-button" onclick="redirect()">Refazer o Quiz</button>
+    </main>
+</body>
+</html>

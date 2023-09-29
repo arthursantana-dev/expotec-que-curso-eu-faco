@@ -1,0 +1,29 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+main h1 {
+    margin-bottom: -5rem;
+}
+
+img main {
+    height: 6rem;
+    width: 6rem;
+}
+
+button.btn {
+    margin: 0;
+    margin-top: 4rem;
+}
+
+p.course-description {
+    font-size: 1.3rem;
+}
+
+section.courses-data {
+    width: 100%;
+}

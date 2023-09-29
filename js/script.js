@@ -30,7 +30,15 @@ const data = [
 		DSPoints: 1,
 		MECAPoints: 3,
 		EDFPoints: 4
-	}
+	},
+	{
+		question: 'Gosto de desenhar',
+		radioButtonType: 'muito/pouco',
+		ADMPoints: 1,
+		DSPoints: 1,
+		MECAPoints: 3,
+		EDFPoints: 4
+	},
 
 ]
 
@@ -58,15 +66,17 @@ data.map((q, i) => {
 	<div class="question__radio-wrapper">
 		<div class="radio-wrapper">
 			<div class="input-radio-wrapper input-radio-wrapper--max">
-				<input class="radio-max radio-big" type="radio" name="${i}" value="4" />
+				<input class="radio-max radio-big radio-positive" type="radio" name="${i}" value="4" />
 			</div>
 			<p class="radio-wrapper-desc radio-wrapper-desc--max">${maxName}!</p>
 		</div>
 		<div class="input-radio-wrapper input-radio-wrapper--max-mid">
-			<input class="radio-max-mid radio-medium" type="radio" name="${i}" value="3" />
+			<input class="radio-max-mid radio-medium radio-positive" type="radio" name="${i}" value="3" />
 		</div>
 		<div class="radio-wrapper">
-			<div class="input-radio-wrapper"><input class="radio-mid" type="radio" name="${i}" value="2" /></div>
+			<div class="input-radio-wrapper">
+				<input class="radio-mid" type="radio" name="${i}" value="2" />
+			</div>
 			<p class="radio-wrapper-desc radio-wrapper-desc--mid">meh...</p>
 		</div>
 		<div class="input-radio-wrapper input-radio-wrapper--min-mid">
@@ -121,5 +131,6 @@ function calculateCourse() {
 	})
 
 	console.log(`ADM: ${ADMPoints}; DS: ${DSPoints}; MECA: ${MECAPoints}; EDF: ${EDFPoints}`);
+	window.location.href = "./resultado-cursos/meca.html";
 
 }
