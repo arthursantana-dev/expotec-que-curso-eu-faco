@@ -62,7 +62,7 @@ data.map((q, i) => {
 
 	main.innerHTML += `<div class="question disabled" data-key=${i}>
 	<div class="question__index">
-		<p class="question__index__value">Questão ${i + 1}</p>
+		<p class="question__index__value">Questão <strong>${i + 1}</strong></p>
 	</div>
 	<h1 class="question__question">${q.question}</h1>
 	<div class="question__radio-wrapper">
@@ -142,7 +142,6 @@ function calculateCourse() {
 		totalEDF += 5 * data[i].EDFPoints
 	})
 
-	total = ADMPoints + DSPoints + MECAPoints + EDFPoints
 
 	const ADMPercentage = (parseFloat(ADMPoints/totalADM) * 100).toFixed(1)
 	const DSPercentage = (parseFloat(DSPoints/totalDS) * 100).toFixed(1)

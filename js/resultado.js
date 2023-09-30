@@ -31,12 +31,17 @@ const coursesAffinity = [
 
 ]
 
-coursesAffinity.sort((a,b) => b.affinity - a.affinity)
+coursesAffinity.sort((a,b) => {
+	if (b.affinity - a.affinity != 0) return b.affinity - a.affinity
+
+	return Math.random() - 0.5
+})
 
 coursesAffinity.map(c => {
 	coursesDataWrapper.innerHTML += `
 	<div class="progress">
                 <div class="progress-bar" style="width: ${c.affinity}%; background-color: var(--${c.name});" role="progressbar" aria-valuenow="${c.affinity}" aria-valuemin="0" aria-valuemax="100"></div>
+
             </div>
 			<span class="course__info">
 				<p>${c.fullName}</p><p class="course__affinity">${c.affinity}%</p>
