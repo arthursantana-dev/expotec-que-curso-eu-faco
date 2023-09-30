@@ -43,6 +43,8 @@ const data = [
 ]
 
 const main = document.querySelector('main')
+const submitButton = document.querySelector('button.submit-button')
+
 let radioButtonToAnswerId = 0
 
 
@@ -122,15 +124,38 @@ function calculateCourse() {
 	let MECAPoints = 0
 	let EDFPoints = 0
 
+	let totalADM = 0
+	let totalDS = 0
+	let totalMECA = 0
+	let totalEDF = 0
+
 	const selectedRadioButtons = Array.from(radioButtons).filter(r => r.checked)
 	selectedRadioButtons.map((r, i) => {
 		ADMPoints += r.value * data[i].ADMPoints
 		DSPoints += r.value * data[i].DSPoints
 		MECAPoints += r.value * data[i].MECAPoints
 		EDFPoints += r.value * data[i].EDFPoints
+
+		totalADM += 5 * data[i].ADMPoints
+		totalDS += 5 * data[i].DSPoints
+		totalMECA += 5 * data[i].MECAPoints
+		totalEDF += 5 * data[i].EDFPoints
 	})
 
-	console.log(`ADM: ${ADMPoints}; DS: ${DSPoints}; MECA: ${MECAPoints}; EDF: ${EDFPoints}`);
-	window.location.href = "./resultado-cursos/meca.html";
+	total = ADMPoints + DSPoints + MECAPoints + EDFPoints
+
+	const ADMPercentage = (parseFloat(ADMPoints/totalADM) * 100).toFixed(1)
+	const DSPercentage = (parseFloat(DSPoints/totalDS) * 100).toFixed(1)
+	const MECAPercentage = (parseFloat(MECAPoints/totalMECA) * 100).toFixed(1)
+	const EDFPercentage = (parseFloat(EDFPoints/totalEDF) * 100).toFixed(1)
+
+
+	submitButton.innerHTML = "<div class='loader'></div>"
+
+	setTimeout(() => {
+		window.location.href = `./resultado.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
+	}, 1500);
+	
+	
 
 }

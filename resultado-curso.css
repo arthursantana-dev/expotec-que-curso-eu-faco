@@ -1,0 +1,61 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+main h1, main h2 {
+	font-weight: bold;
+}
+
+.main__img {
+	width: fit-content;
+	display: flex;
+	margin: auto;
+}
+
+.main__img img {
+	width: 87%;
+	margin: auto;
+	margin-block: 2rem;
+}
+
+p.course-description {
+    font-size: 1.3rem;
+}
+
+section.courses-data {
+    width: 100%;
+	border: 1px solid rgb(225, 225, 225);
+	padding: 1rem;
+	border-radius: .5rem;
+	margin-block: 1rem;
+	box-shadow: var(--shadow);
+}
+
+h2 {
+	margin-bottom: 0.8rem;
+}
+
+span.course__info {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.course__info p {
+	font-size: 1.1rem;
+}
+
+p.course__affinity {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.courses-data__obsertation {
+	color: gray;
+	font-weight: 300;
+}
