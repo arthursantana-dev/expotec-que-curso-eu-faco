@@ -159,6 +159,7 @@ button.submit-button {
 	margin: auto;
 	background: var(--gradient-background);
 	border: none;
+	transition: 0.5s;
 }
 
 img#img-footer {

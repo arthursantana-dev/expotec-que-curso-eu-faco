@@ -152,7 +152,7 @@ function calculateCourse() {
 	submitButton.innerHTML = "<div class='loader'></div>"
 
 	setTimeout(() => {
-		window.location.href = `./resultado.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
+		window.location.href = `./result.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
 	}, 1500);
 	
 	
