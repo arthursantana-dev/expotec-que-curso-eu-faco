@@ -1,7 +1,0 @@
-test_results
-id
-ideal_course
-adm
-ds
-meca
-edf
