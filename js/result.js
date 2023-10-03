@@ -58,7 +58,8 @@ coursesAffinity.sort((a,b) => {
 const idealCourse = coursesAffinity[0].name
 const idealFullCourse = coursesAffinity[0].fullName
 
-courseImageElement.src = `../assets/${idealCourse}.png`
+courseImageElement.src = `./assets/${idealCourse}.png`
+console.log(courseImageElement);
 courseDescriptionElement.innerHTML = coursesInfo[coursesInfo.indexOf(idealFullCourse)]
 
 coursesInfo.forEach(c => {if(c.course == idealFullCourse) courseDescriptionElement.innerHTML = c.content})
