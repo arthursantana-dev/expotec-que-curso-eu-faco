@@ -30,15 +30,7 @@ const data = [
 		DSPoints: 1,
 		MECAPoints: 3,
 		EDFPoints: 4
-	},
-	{
-		question: 'Gosto de desenhar',
-		radioButtonType: 'muito/pouco',
-		ADMPoints: 1,
-		DSPoints: 1,
-		MECAPoints: 3,
-		EDFPoints: 4
-	},
+	}
 
 ]
 

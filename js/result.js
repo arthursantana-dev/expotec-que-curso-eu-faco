@@ -55,6 +55,36 @@ coursesAffinity.sort((a,b) => {
 	return Math.random() - 0.5
 })
 
+const testResults = {
+	idealCourse: coursesAffinity[0].name,
+	adm: ADM,
+	ds: DS,
+	meca: MECA,
+	edf: EDF
+}
+
+fetch('http://localhost:8080/', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify(testResults)
+}).then(response => response.json()).then(data => console.log(data))
+
+// fetch('https://localhost:8080/', {
+// 	method: 'POST',
+// 	headers: {
+// 		'Content-Type': 'application/json',
+// 	}
+// })
+
+// fetch('https://localhost:8080/', {
+// 	method: 'GET'
+// })
+
+
+
+
 const idealCourse = coursesAffinity[0].name
 const idealFullCourse = coursesAffinity[0].fullName
 
