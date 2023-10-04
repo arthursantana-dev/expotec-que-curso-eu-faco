@@ -57,7 +57,7 @@ div.question {
 }
 
 div.question__index {
-	width: 101%;
+	width: 120%;
     background: var(--gradient-background);
     padding-inline: 0.6rem;
     padding-block: 0.1rem;
