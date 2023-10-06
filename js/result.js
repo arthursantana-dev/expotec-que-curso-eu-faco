@@ -63,6 +63,11 @@ const testResults = {
 	edf: EDF
 }
 
+if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wrapper').innerHTML = `<div class="icon-wrapper">
+<img class="crown-icon" src="./assets/crown-solid.svg">
+</div>
+<h1 class="course-badge"></h1>`
+
 fetch('http://localhost:8080/', {
 	method: 'POST',
 	headers: {

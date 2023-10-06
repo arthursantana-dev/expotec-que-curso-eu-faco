@@ -14,8 +14,10 @@ const data = [
     new Question('Lido bem com Pessoas', 'muito/pouco', 5, 3, 3, 4),
     new Question('Curto robôs', 'muito/pouco', 3, 5, 5, 3),
     new Question('Me identifico com as Ciências Exatas', 'muito/pouco', 4, 5, 5, 4),
+	new Question('Me dou bem com problemas lógicos (cubo-mágico, xadrez, damas...)', 'muito/pouco', 4, 5, 3, 3),
     new Question('Gostava de brinquedos de construção na infância, como Lego', 'muito/pouco', 3, 4, 3, 5),
     new Question('Tenho afinidade com as Ciências Humanas', 'sim/nao', 5, 3, 3, 5),
+	new Question('Gosto de videogames', 'muito/pouco', 2, 5, 4, 3),
     new Question('Tenho senso de liderança', 'sim/nao', 5, 3, 3, 4),
     new Question('Prefiro trabalhar sozinho', 'sim/nao', 3, 5, 4, 3),
     new Question('Gosto de ler/escrever histórias e textos', 'sim/nao', 5, 5, 3, 3),
@@ -136,13 +138,17 @@ function calculateCourse() {
 		totalDS += Math.pow(data[i].DSPoints, 2)
 		totalMECA += Math.pow(data[i].MECAPoints, 2)
 		totalEDF += Math.pow(data[i].EDFPoints, 2)
+
+		// totalADM += 5 * data[i].ADMPoints
+		// totalDS += 5 * data[i].DSPoints
+		// totalMECA += 5 * data[i].MECAPoints
+		// totalEDF += 5 * data[i].EDFPoints
 	})
 
-	totalADM *= 1.15
-	totalDS *= 1.15
-	totalMECA *= 1.15
-	totalEDF *= 1.15
-
+	totalADM *= 1.45
+	totalDS *= 1.30
+	totalMECA *= 1.50
+	totalEDF *= 1.40
 
 	const ADMPercentage = (parseFloat(ADMPoints/totalADM) * 100).toFixed(1)
 	const DSPercentage = (parseFloat(DSPoints/totalDS) * 100).toFixed(1)

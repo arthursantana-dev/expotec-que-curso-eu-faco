@@ -59,3 +59,23 @@ p.course__affinity {
 	color: gray;
 	font-weight: 300;
 }
+
+.badge {
+	position: relative;
+    top: 5rem;
+    background: var(--gradient-background);
+}
+
+div.icon-wrapper {
+	position: relative;
+    top: 6rem;
+    width: 3.75rem;
+    right: 1rem;
+    z-index: 2;
+    rotate: 342deg;
+}
+
+img.crown-icon {
+	/* filter: brightness(0) saturate(100%) invert(96%) sepia(99%) saturate(5587%) hue-rotate(7deg) brightness(114%) contrast(96%); */
+	filter: brightness(0) saturate(100%) invert(88%) sepia(33%) saturate(3009%) hue-rotate(345deg) brightness(105%) contrast(102%);
+}
