@@ -134,15 +134,15 @@ function calculateCourse() {
 		MECAPoints += r.value * data[i].MECAPoints
 		EDFPoints += r.value * data[i].EDFPoints
 
-		totalADM += Math.pow(data[i].ADMPoints, 2)
-		totalDS += Math.pow(data[i].DSPoints, 2)
-		totalMECA += Math.pow(data[i].MECAPoints, 2)
-		totalEDF += Math.pow(data[i].EDFPoints, 2)
+		// totalADM += Math.pow(data[i].ADMPoints, 2)
+		// totalDS += Math.pow(data[i].DSPoints, 2)
+		// totalMECA += Math.pow(data[i].MECAPoints, 2)
+		// totalEDF += Math.pow(data[i].EDFPoints, 2)
 
-		// totalADM += 5 * data[i].ADMPoints
-		// totalDS += 5 * data[i].DSPoints
-		// totalMECA += 5 * data[i].MECAPoints
-		// totalEDF += 5 * data[i].EDFPoints
+		totalADM += 5 * data[i].ADMPoints
+		totalDS += 5 * data[i].DSPoints
+		totalMECA += 5 * data[i].MECAPoints
+		totalEDF += 5 * data[i].EDFPoints
 	})
 
 	totalADM *= 1.45

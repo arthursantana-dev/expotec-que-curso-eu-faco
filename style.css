@@ -160,6 +160,21 @@ button.submit-button {
 	background: var(--gradient-background);
 	border: none;
 	transition: 0.5s;
+    padding-block: 1px;
+    padding-inline: 4px;
+}
+
+button span {
+	padding-inline: 6px;
+    padding-block: 1px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+span span {
+	background: var(--gradient-background);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 img#img-footer {
