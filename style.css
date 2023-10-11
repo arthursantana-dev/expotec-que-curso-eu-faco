@@ -27,14 +27,18 @@
 
 body {
 	font-family: var(--font);
+	scroll-behavior: smooth;
 }
 
 img#img-navbar {
 	width: 4rem;
 }
 
-nav {
-	position: sticky;
+.nav {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+	box-shadow: var(--shadow);
 }
 
 nav span {
@@ -48,6 +52,24 @@ nav h1 {
 	font-weight: 500;
 }
 
+section.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-block: 10rem;
+	gap: 1rem;
+}
+
+.hero p {
+    color: gray;
+    font-weight: 300;
+    width: 100%;
+	font-size: 1.25rem;
+    text-align: center;
+    max-width: 30rem;
+}
+
 div.question {
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	padding-inline: 1rem;
@@ -57,13 +79,15 @@ div.question {
 }
 
 div.question__index {
-	width: 120%;
+    width: 102%;
+    overflow: hidden;
     background: var(--gradient-background);
     padding-inline: 0.6rem;
     padding-block: 0.1rem;
     color: white;
+    margin: auto;
     border-radius: 0.5rem 0.5rem 0 0;
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 div.question__index p {
@@ -160,7 +184,7 @@ button.submit-button {
 	background: var(--gradient-background);
 	border: none;
 	transition: 0.5s;
-    padding-block: 1px;
+    padding-block: 4px;
     padding-inline: 4px;
 }
 
@@ -169,12 +193,14 @@ button span {
     padding-block: 1px;
     background-color: white;
     border-radius: 4px;
+	display: block;
 }
 
 span span {
 	background: var(--gradient-background);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	display: block;
 }
 
 img#img-footer {

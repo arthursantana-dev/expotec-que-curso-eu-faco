@@ -23,11 +23,12 @@ const data = [
     new Question('Gosto de ler/escrever histórias e textos', 'sim/nao', 5, 5, 3, 3),
     new Question('Sou criativo(a)', 'muito/pouco', 5, 5, 3, 4),
     new Question('Sou organizado(a)', 'muito/pouco', 5, 5, 3, 3),
+	new Question('Sou fanático por tecnologia', 'muito/pouco', 3, 5, 4, 3),
     new Question('Gosto de desenhar', 'muito/pouco', 3, 3, 4, 5),
 ]
 
 const main = document.querySelector('main')
-const submitButton = document.querySelector('button.submit-button')
+const submitButton = document.querySelector('#submit-button')
 
 let radioButtonToAnswerId = 0
 
@@ -89,7 +90,6 @@ function allowNextRadioButtonInnerFunction(r) {
 		if (radioButtonToAnswerId < data.length - 1) {
 			
 			let groupWasPressed = pressedRadiosName.indexOf(r.name) != -1
-			console.log(`Btn name ${r.name}: ${groupWasPressed}`)
 
 			if(!groupWasPressed) {
 				pressedRadiosName.push(r.name) 
@@ -99,7 +99,7 @@ function allowNextRadioButtonInnerFunction(r) {
 			}
 
 		} else {
-			document.querySelector('button.submit-button').classList.remove('disabled')
+			submitButton.classList.remove('disabled')
 		}
 	})
 
@@ -156,7 +156,7 @@ function calculateCourse() {
 	const EDFPercentage = (parseFloat(EDFPoints/totalEDF) * 100).toFixed(1)
 
 
-	submitButton.innerHTML = "<div class='loader'></div>"
+	document.querySelector('div#div-submit').innerHTML = "<div class='loader'></div>"
 
 	setTimeout(() => {
 		window.location.href = `./result.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
