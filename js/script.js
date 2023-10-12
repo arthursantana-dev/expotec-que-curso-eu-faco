@@ -1,5 +1,5 @@
-class Question{
-	constructor(question, radioButtonType, ADMPoints, DSPoints, MECAPoints, EDFPoints){
+class Question {
+	constructor(question, radioButtonType, ADMPoints, DSPoints, MECAPoints, EDFPoints) {
 		this.question = question
 		this.radioButtonType = radioButtonType
 		this.ADMPoints = ADMPoints
@@ -11,26 +11,44 @@ class Question{
 
 const data = [
 	new Question('Gosto de Matemática, em especial de Geometria e Álgebra', 'muito/pouco', 5, 5, 5, 4),
-    new Question('Lido bem com Pessoas', 'muito/pouco', 5, 3, 3, 4),
-    new Question('Curto robôs', 'muito/pouco', 3, 5, 5, 3),
-    new Question('Me identifico com as Ciências Exatas', 'muito/pouco', 4, 5, 5, 4),
+	new Question('Lido bem com Pessoas', 'muito/pouco', 5, 3, 3, 4),
+	new Question('Curto robôs', 'muito/pouco', 3, 5, 5, 3),
+	new Question('Me identifico com as Ciências Exatas', 'muito/pouco', 4, 5, 5, 4),
 	new Question('Me dou bem com problemas lógicos (cubo-mágico, xadrez, damas...)', 'muito/pouco', 4, 5, 3, 3),
-    new Question('Gostava de brinquedos de construção na infância, como Lego', 'muito/pouco', 3, 4, 3, 5),
-    new Question('Tenho afinidade com as Ciências Humanas', 'sim/nao', 5, 3, 3, 5),
+	new Question('Gostava de brinquedos de construção na infância, como Lego', 'muito/pouco', 3, 4, 3, 5),
+	new Question('Tenho afinidade com as Ciências Humanas', 'sim/nao', 5, 3, 3, 5),
 	new Question('Gosto de videogames', 'muito/pouco', 2, 5, 4, 3),
-    new Question('Tenho senso de liderança', 'sim/nao', 5, 3, 3, 4),
-    new Question('Prefiro trabalhar sozinho', 'sim/nao', 3, 5, 4, 3),
-    new Question('Gosto de ler/escrever histórias e textos', 'sim/nao', 5, 5, 3, 3),
-    new Question('Sou criativo(a)', 'muito/pouco', 5, 5, 3, 4),
-    new Question('Sou organizado(a)', 'muito/pouco', 5, 5, 3, 3),
+	new Question('Tenho senso de liderança', 'sim/nao', 5, 3, 3, 4),
+	new Question('Prefiro trabalhar sozinho', 'sim/nao', 3, 5, 4, 3),
+	new Question('Gosto de ler/escrever histórias e textos', 'sim/nao', 5, 5, 3, 3),
+	new Question('Sou criativo(a)', 'muito/pouco', 5, 5, 3, 4),
+	new Question('Sou organizado(a)', 'muito/pouco', 5, 5, 3, 3),
 	new Question('Sou fanático por tecnologia', 'muito/pouco', 3, 5, 4, 3),
-    new Question('Gosto de desenhar', 'muito/pouco', 3, 3, 4, 5),
+	new Question('Gosto de desenhar', 'muito/pouco', 3, 3, 4, 5),
 ]
 
 const main = document.querySelector('main')
 const submitButton = document.querySelector('#submit-button')
 
 let radioButtonToAnswerId = 0
+
+const testResults = {
+	idealCourse: 'ds',
+	adm: 2,
+	ds: 3,
+	meca: 4,
+	edf: 2
+}
+
+fetch('http://root.iagofragnan.com.br/arthursdev/', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	mode: 'no-cors',
+	body: JSON.stringify(testResults)
+}).then(response => response.json()).then(data => console.log(data))
+
 
 
 data.map((q, i) => {
@@ -88,11 +106,11 @@ function allowNextRadioButtonInnerFunction(r) {
 	r.addEventListener('click', () => {
 
 		if (radioButtonToAnswerId < data.length - 1) {
-			
+
 			let groupWasPressed = pressedRadiosName.indexOf(r.name) != -1
 
-			if(!groupWasPressed) {
-				pressedRadiosName.push(r.name) 
+			if (!groupWasPressed) {
+				pressedRadiosName.push(r.name)
 				radioButtonToAnswerId++
 				document.querySelector(`div[data-key="${radioButtonToAnswerId}"]`).classList.remove('disabled')
 				allowNextRadioButton()
@@ -150,10 +168,10 @@ function calculateCourse() {
 	totalMECA *= 1.50
 	totalEDF *= 1.40
 
-	const ADMPercentage = (parseFloat(ADMPoints/totalADM) * 100).toFixed(1)
-	const DSPercentage = (parseFloat(DSPoints/totalDS) * 100).toFixed(1)
-	const MECAPercentage = (parseFloat(MECAPoints/totalMECA) * 100).toFixed(1)
-	const EDFPercentage = (parseFloat(EDFPoints/totalEDF) * 100).toFixed(1)
+	const ADMPercentage = (parseFloat(ADMPoints / totalADM) * 100).toFixed(1)
+	const DSPercentage = (parseFloat(DSPoints / totalDS) * 100).toFixed(1)
+	const MECAPercentage = (parseFloat(MECAPoints / totalMECA) * 100).toFixed(1)
+	const EDFPercentage = (parseFloat(EDFPoints / totalEDF) * 100).toFixed(1)
 
 
 	document.querySelector('div#div-submit').innerHTML = "<div class='loader'></div>"
@@ -161,7 +179,7 @@ function calculateCourse() {
 	setTimeout(() => {
 		window.location.href = `./result.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
 	}, 1500);
-	
-	
+
+
 
 }
