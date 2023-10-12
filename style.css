@@ -90,6 +90,8 @@ div.question {
   padding-block: 0.2rem;
   border-radius: 1rem;
   margin-bottom: 2rem;
+  max-width: 29rem;
+  margin-inline: auto;
 }
 
 div.question__index {

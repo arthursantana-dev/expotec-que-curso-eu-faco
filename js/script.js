@@ -32,25 +32,6 @@ const submitButton = document.querySelector('#submit-button')
 
 let radioButtonToAnswerId = 0
 
-const testResults = {
-	idealCourse: 'ds',
-	adm: 2,
-	ds: 3,
-	meca: 4,
-	edf: 2
-}
-
-fetch('http://root.iagofragnan.com.br/arthursdev/', {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json',
-	},
-	mode: 'no-cors',
-	body: JSON.stringify(testResults)
-}).then(response => response.json()).then(data => console.log(data))
-
-
-
 data.map((q, i) => {
 	let maxName = ""
 	let minName = ""
