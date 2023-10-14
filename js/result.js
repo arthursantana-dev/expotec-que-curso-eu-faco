@@ -68,7 +68,7 @@ if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wr
 </div>
 <h1 class="badge course-badge">O melhor curso!</h1>`
 
-fetch('http://root.iagofragnan.com.br:8083/', {
+fetch('https://qcef-api.vercel.app/', {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json',
