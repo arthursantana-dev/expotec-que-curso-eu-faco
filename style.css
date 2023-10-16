@@ -138,6 +138,10 @@ input[type="radio"].radio-positive {
   accent-color: rgb(248, 30, 183);
 }
 
+.question__radio-wrapper input:nth-child(n+3){
+  accent-color: black;
+}
+
 .radio-big {
   width: 2rem;
   height: 2rem;
@@ -146,6 +150,7 @@ input[type="radio"].radio-positive {
 .radio-max-mid {
   width: 1.5rem;
   height: 1.5rem;
+  accent-color: gray;
 }
 
 .radio-min-mid {
@@ -157,7 +162,6 @@ input[type="radio"].radio-positive {
 input[type="radio"].radio-mid {
   width: 1.2rem;
   height: 1.2rem;
-  accent-color: rgb(165, 165, 165);
 }
 
 div.radio-wrapper {
