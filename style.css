@@ -49,6 +49,7 @@ img#img-navbar {
   top: 0px;
   z-index: 2;
   box-shadow: var(--shadow);
+  border-radius: 0 0 0.9rem 0.9rem;
 }
 
 nav span {
@@ -92,14 +93,18 @@ div.question {
   margin-bottom: 2rem;
   max-width: 29rem;
   margin-inline: auto;
+  overflow: hidden;
 }
 
 div.question__index {
-  width: 102%;
+  width: 108%;
+  right: 1rem;
+  bottom: 0.3rem;
+  position: relative;
   overflow: hidden;
   background: var(--gradient-background);
   padding-inline: 0.6rem;
-  padding-block: 0.1rem;
+  padding-block: 0.3rem;
   color: white;
   margin: auto;
   border-radius: 0.5rem 0.5rem 0 0;
@@ -125,7 +130,7 @@ div.question__radio-wrapper {
 }
 
 input[type="radio"] {
-  margin: 6px;
+  margin: 0;
   accent-color: rgb(59, 59, 59);
 }
 
@@ -138,11 +143,16 @@ input[type="radio"].radio-positive {
   height: 2rem;
 }
 
-.radio-max-mid,
-.radio-min-mid {
+.radio-max-mid {
   width: 1.5rem;
   height: 1.5rem;
 }
+
+.radio-min-mid {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
 
 input[type="radio"].radio-mid {
   width: 1.2rem;
@@ -158,10 +168,13 @@ div.radio-wrapper {
 
 .input-radio-wrapper {
   border-radius: 100%;
-  width: fit-content;
-  height: fit-content;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(128, 128, 128, 0.399);
+  padding: 4px;
 }
+
 
 .input-radio-wrapper--max {
   background: var(--gradient-background);
@@ -196,19 +209,23 @@ p.radio-wrapper-desc--min {
 }
 
 button.submit-button {
-  margin: auto;
+  margin: 1rem;
   background: var(--gradient-background);
   border: none;
   transition: 0.5s;
-  padding-block: 4px;
-  padding-inline: 4px;
+  padding-block: 2px;
+  padding-inline: 2px;
+}
+
+button.submit-button, button span {
+  width: 100%;
 }
 
 button span {
   padding-inline: 6px;
-  padding-block: 1px;
+  padding-block: 0.2rem;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 6px;
   display: block;
 }
 
@@ -222,7 +239,8 @@ span span {
 img#img-footer {
   width: 22rem;
   margin: auto;
-  margin-block: 1rem;
+  margin-bottom: 4rem;
+  opacity: 0.6;
 }
 
 .loader {

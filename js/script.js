@@ -61,15 +61,16 @@ data.map((q, i) => {
 		</div>
 		<div class="radio-wrapper">
 			<div class="input-radio-wrapper">
-				<input class="radio-mid" type="radio" name="${i}" value="3" />
+				<input class="radio-max-mid" type="radio" name="${i}" value="3" />
 			</div>
 			<p class="radio-wrapper-desc radio-wrapper-desc--mid">meh...</p>
 		</div>
 		<div class="input-radio-wrapper input-radio-wrapper--min-mid">
-			<input class="radio-min-mid radio-medium" type="radio" name="${i}" value="2" />
+			<input class="radio-mid radio-medium" type="radio" name="${i}" value="2" />
 		</div>
 		<div class="radio-wrapper">
-			<div class="input-radio-wrapper input-radio-wrapper--min"><input class="radio-min radio-big"
+			<div class="input-radio-wrapper input-radio-wrapper--min">
+			<input class="radio-mid radio"
 					type="radio" name="${i}" value="1" />
 			</div>
 			<p class="radio-wrapper-desc radio-wrapper-desc--min">${minName}!</p>
