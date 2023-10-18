@@ -55,12 +55,32 @@ coursesAffinity.sort((a, b) => {
 	return Math.random() - 0.5
 })
 
+function formatarData(data) {
+	const ano = data.getFullYear();
+	const mes = padLeft(data.getMonth() + 1, 2);
+	const dia = padLeft(data.getDate(), 2);
+	const horas = padLeft(data.getHours(), 2);
+	const minutos = padLeft(data.getMinutes(), 2);
+	const segundos = padLeft(data.getSeconds(), 2);
+
+	return `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+}
+
+function padLeft(valor, largura, caractere = '0') {
+	return String(valor).padStart(largura, caractere);
+}
+
+const dataAtual = new Date();
+
+const dataFormatada = formatarData(dataAtual);
+
 const testResults = {
 	idealCourse: coursesAffinity[0].name,
 	adm: ADM,
 	ds: DS,
 	meca: MECA,
-	edf: EDF
+	edf: EDF,
+	dateTime: dataFormatada
 }
 
 if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wrapper').innerHTML = `<div class="icon-wrapper">
@@ -68,7 +88,7 @@ if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wr
 </div>
 <h1 class="badge course-badge">O melhor curso!</h1>`
 
-fetch('https://qcef-api.vercel.app/', {
+fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json',
@@ -76,16 +96,13 @@ fetch('https://qcef-api.vercel.app/', {
 	body: JSON.stringify(testResults)
 }).then(response => response.json()).then(data => console.log(data))
 
-// fetch('https://localhost:8080/', {
+// fetch('http://localhost:8080/', {
 // 	method: 'POST',
 // 	headers: {
-// 		'Content-Type': 'application/json',
-// 	}
-// })
-
-// fetch('https://localhost:8080/', {
-// 	method: 'GET'
-// })
+// 		'Content-Type': 'application/json'
+// 	},
+// 	body: JSON.stringify(testResults)
+// }).then(response => response.json()).then(data => console.log(data))
 
 
 
