@@ -72,6 +72,7 @@ fetch('https://qcef-api.vercel.app/', {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': '*'
 	},
 	body: JSON.stringify(testResults)
 }).then(response => response.json()).then(data => console.log(data))
