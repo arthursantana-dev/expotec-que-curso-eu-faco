@@ -91,8 +91,7 @@ if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wr
 fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
 	method: 'POST',
 	headers: {
-		'Content-Type': 'application/json',
-		'Access-Control-Allow-Origin': '*'
+		'Content-Type': 'application/json'
 	},
 	body: JSON.stringify(testResults)
 }).then(response => response.json()).then(data => console.log(data))
