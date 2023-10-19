@@ -104,9 +104,6 @@ fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
 // 	body: JSON.stringify(testResults)
 // }).then(response => response.json()).then(data => console.log(data))
 
-
-
-
 const idealCourse = coursesAffinity[0].name
 const idealFullCourse = coursesAffinity[0].fullName
 

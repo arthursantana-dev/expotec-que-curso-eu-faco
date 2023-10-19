@@ -50,6 +50,8 @@ img#img-navbar {
   z-index: 2;
   box-shadow: var(--shadow);
   border-radius: 0 0 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: column;
 }
 
 nav span {
@@ -61,6 +63,18 @@ nav span {
 nav h1 {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.nav-progress-container {
+  width: 100%;
+  height: 8px;
+  background: #efefef;
+}
+
+.nav-progress-bar {
+  height: 8px;
+  background: var(--gradient-background);
+  width: 0%;
 }
 
 section.hero {
@@ -82,7 +96,7 @@ section.hero {
 }
 
 .hero img {
-	width: 21rem;
+  width: 21rem;
 }
 
 div.question {
@@ -138,7 +152,7 @@ input[type="radio"].radio-positive {
   accent-color: rgb(248, 30, 183);
 }
 
-.question__radio-wrapper input:nth-child(n+3){
+.question__radio-wrapper input:nth-child(n + 3) {
   accent-color: black;
 }
 
@@ -158,7 +172,6 @@ input[type="radio"].radio-positive {
   height: 1.3rem;
 }
 
-
 input[type="radio"].radio-mid {
   width: 1.2rem;
   height: 1.2rem;
@@ -172,13 +185,12 @@ div.radio-wrapper {
 
 .input-radio-wrapper {
   border-radius: 100%;
-  display: flex ;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(128, 128, 128, 0.399);
   padding: 4px;
 }
-
 
 .input-radio-wrapper--max {
   background: var(--gradient-background);
@@ -221,7 +233,8 @@ button.submit-button {
   padding-inline: 2px;
 }
 
-button.submit-button, button span {
+button.submit-button,
+button span {
   width: 100%;
 }
 

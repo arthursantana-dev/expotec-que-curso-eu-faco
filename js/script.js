@@ -9,7 +9,7 @@ class Question {
 	}
 }
 
-const data = [
+const fixedData = [
 	new Question('Gosto de Matemática, em especial de Geometria e Álgebra', 'muito/pouco', 5, 5, 5, 4),
 	new Question('Lido bem com Pessoas', 'muito/pouco', 5, 3, 3, 4),
 	new Question('Curto robôs', 'muito/pouco', 3, 5, 5, 3),
@@ -25,7 +25,43 @@ const data = [
 	new Question('Sou organizado(a)', 'muito/pouco', 5, 5, 3, 3),
 	new Question('Sou fanático por tecnologia', 'muito/pouco', 3, 5, 4, 3),
 	new Question('Gosto de desenhar', 'muito/pouco', 3, 3, 4, 5),
+	new Question('Tenho interesse em automação residencial', 'sim/nao', 3, 4, 5, 3),
+	new Question('Gosto de trabalhar com circuitos eletrônicos', 'muito/pouco', 3, 4, 5, 3),
+	new Question('Tenho afinidade com processos industriais', 'muito/pouco', 4, 3, 5, 3),
+	new Question('Sou fascinado por arquitetura e construção civil', 'sim/nao', 4, 3, 3, 5),
+	new Question('Gosto de cuidar de detalhes em projetos', 'muito/pouco', 4, 4, 3, 4),
+	new Question('Prefiro trabalhar em um ambiente de escritório', 'sim/nao', 5, 5, 3, 3),
+	new Question('Tenho interesse em inteligência artificial', 'sim/nao', 3, 5, 4, 3),
+	new Question('Gosto de participar de competições acadêmicas', 'muito/pouco', 4, 5, 4, 3),
+	new Question('Tenho aptidão para lidar com ferramentas de design gráfico', 'muito/pouco', 3, 5, 4, 4),
+	new Question('Tenho facilidade em explicar conceitos complexos', 'muito/pouco', 5, 4, 3, 3),
+	new Question('Gosto de trabalhar ao ar livre', 'sim/nao', 3, 3, 3, 5),
+	new Question('Tenho habilidades artísticas', 'muito/pouco', 3, 3, 4, 5),
+	new Question('Gosto de estudar processos de produção', 'muito/pouco', 4, 3, 5, 3),
+	new Question('Tenho facilidade em liderar equipes', 'sim/nao', 5, 4, 3, 4),
+	new Question('Gosto de aprender sobre novas tecnologias', 'muito/pouco', 4, 5, 4, 3),
+	new Question('Tenho interesse em empreendedorismo', 'sim/nao', 5, 4, 3, 4),
+
 ]
+
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+}
+
+window.onscroll = function() {progressBar()};
+
+function progressBar() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.querySelector('.progress-bar').style.width = scrolled + "%";
+}
+
+const data = shuffleArray(fixedData)
 
 const main = document.querySelector('main')
 const submitButton = document.querySelector('#submit-button')
@@ -145,9 +181,9 @@ function calculateCourse() {
 		totalEDF += 5 * data[i].EDFPoints
 	})
 
-	totalADM *= 1.45
-	totalDS *= 1.30
-	totalMECA *= 1.50
+	totalADM *= 1.40
+	totalDS *= 1.37
+	totalMECA *= 1.40
 	totalEDF *= 1.40
 
 	const ADMPercentage = (parseFloat(ADMPoints / totalADM) * 100).toFixed(1)
