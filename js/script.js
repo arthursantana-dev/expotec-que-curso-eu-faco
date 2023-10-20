@@ -55,6 +55,13 @@ function shuffleArray(array) {
 
 const data = shuffleArray(fixedData)
 
+setInterval(fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	}
+}).then(response => response.json()).then(data => console.log(data)), 1000)
+
 const main = document.querySelector('main')
 const submitButton = document.querySelector('#submit-button')
 
