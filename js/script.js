@@ -52,14 +52,6 @@ function shuffleArray(array) {
 	return array;
 }
 
-window.onscroll = function() {progressBar()};
-
-function progressBar() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.querySelector('.progress-bar').style.width = scrolled + "%";
-}
 
 const data = shuffleArray(fixedData)
 
@@ -120,6 +112,11 @@ document.querySelector(`div[data-key="${radioButtonToAnswerId}"]`).classList.rem
 
 let pressedRadiosName = []
 
+let answeredQuestions = 0
+
+const progressBarValueElement = document.querySelector('.nav-progress__value')
+progressBarValueElement.innerHTML = `${answeredQuestions}/${data.length}`
+
 function allowNextRadioButtonInnerFunction(r) {
 	r.addEventListener('click', () => {
 
@@ -132,6 +129,9 @@ function allowNextRadioButtonInnerFunction(r) {
 				radioButtonToAnswerId++
 				document.querySelector(`div[data-key="${radioButtonToAnswerId}"]`).classList.remove('disabled')
 				allowNextRadioButton()
+				answeredQuestions++
+				progressBarValueElement.innerHTML = `${answeredQuestions}/${data.length}`
+				document.querySelector('.nav-progress-bar').style.width =  `${ 100 - (answeredQuestions / data.length) * 100}%`
 			}
 
 		} else {
