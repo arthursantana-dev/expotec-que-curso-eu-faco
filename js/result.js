@@ -92,9 +92,18 @@ fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/json'
+	}
+}).then(response => response.json()).then(data => console.log(data))
+
+setTimeout(fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
 	},
 	body: JSON.stringify(testResults)
-}).then(response => response.json()).then(data => console.log(data))
+}).then(response => response.json()).then(data => console.log(data)) , 500)
+
+
 
 // fetch('http://localhost:8080/', {
 // 	method: 'POST',
