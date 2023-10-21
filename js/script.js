@@ -139,11 +139,14 @@ function allowNextRadioButtonInnerFunction(r) {
 				allowNextRadioButton()
 				answeredQuestions++
 				progressBarValueElement.innerHTML = `${answeredQuestions}/${data.length}`
-				document.querySelector('.nav-progress-bar').style.width =  `${ 100 - (answeredQuestions / data.length) * 100}%`
+				document.querySelector('.nav-progress-bar').style.width = `${100 - (answeredQuestions / data.length) * 100}%`
 			}
 
 		} else {
 			submitButton.classList.remove('disabled')
+			answeredQuestions++
+			progressBarValueElement.innerHTML = `${answeredQuestions}/${data.length}`
+			document.querySelector('.nav-progress-bar').style.width = `${100 - (answeredQuestions / data.length) * 100}%`
 		}
 	})
 
@@ -189,10 +192,10 @@ function calculateCourse() {
 		totalEDF += 5 * data[i].EDFPoints
 	})
 
-	totalADM *= 1.40
-	totalDS *= 1.37
-	totalMECA *= 1.40
-	totalEDF *= 1.40
+	totalADM *= 1.02
+	totalDS *= 1.01
+	totalMECA *= 1.05
+	totalEDF *= 1.02
 
 	const ADMPercentage = (parseFloat(ADMPoints / totalADM) * 100).toFixed(1)
 	const DSPercentage = (parseFloat(DSPoints / totalDS) * 100).toFixed(1)

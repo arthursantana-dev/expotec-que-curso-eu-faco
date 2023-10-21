@@ -154,6 +154,10 @@ h1.question__question {
   margin-bottom: 2rem;
 }
 
+mark {
+	background: var(--gradient-background--mid);
+}
+
 div.question__radio-wrapper {
   display: flex;
   justify-content: space-between;

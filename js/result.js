@@ -105,10 +105,6 @@ setTimeout(() => {
 	}).then(response => response.json()).then(data => console.log(data))
 }, 3000);
 
-
-
-
-
 // fetch('http://localhost:8080/', {
 // 	method: 'POST',
 // 	headers: {
@@ -125,8 +121,6 @@ console.log(courseImageElement);
 courseDescriptionElement.innerHTML = coursesInfo[coursesInfo.indexOf(idealFullCourse)]
 
 coursesInfo.forEach(c => { if (c.course == idealFullCourse) courseDescriptionElement.innerHTML = c.content })
-
-
 
 coursesAffinity.map(c => {
 	coursesDataWrapper.innerHTML += `
