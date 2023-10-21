@@ -60,7 +60,8 @@ setInterval(fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
 	headers: {
 		'Content-Type': 'application/json'
 	}
-}).then(response => response.json()).then(data => console.log(data)), 1000)
+}).then(response => response.json()).then(data => console.log(data)), 5000)
+
 
 const main = document.querySelector('main')
 const submitButton = document.querySelector('#submit-button')
