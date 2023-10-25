@@ -333,7 +333,7 @@ function calculateCourse() {
 	}, 3000);
 
 	setTimeout(() => {
-		window.location.href = `./result.html?ideal-course=${coursesAffinity[0].name}`
+		window.location.href = `./result.html`
 	}, 3200);
 	
 
