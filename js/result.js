@@ -1,9 +1,13 @@
-const urlParams = new URLSearchParams(window.location.search)
+// const urlParams = new URLSearchParams(window.location.search)
 
-const ADM = urlParams.get('adm')
-const DS = urlParams.get('ds')
-const MECA = urlParams.get('meca')
-const EDF = urlParams.get('edf')
+// const ADM = urlParams.get('adm')
+// const DS = urlParams.get('ds')
+// const MECA = urlParams.get('meca')
+// const EDF = urlParams.get('edf')
+
+const testInfo = JSON.parse(localStorage.getItem('testInfo'))
+
+const {idealCourse: idealCourse, idealCourseFullName: idealFullCourse, adm: ADM, ds: DS, meca: MECA, edf: EDF} = testInfo
 
 const coursesDataWrapper = document.querySelector('section.courses-data')
 const courseImageElement = document.querySelector('img.main__img__img')
@@ -55,55 +59,55 @@ coursesAffinity.sort((a, b) => {
 	return Math.random() - 0.5
 })
 
-function formatarData(data) {
-	const ano = data.getFullYear();
-	const mes = padLeft(data.getMonth() + 1, 2);
-	const dia = padLeft(data.getDate(), 2);
-	const horas = padLeft(data.getHours(), 2);
-	const minutos = padLeft(data.getMinutes(), 2);
-	const segundos = padLeft(data.getSeconds(), 2);
+// function formatarData(data) {
+// 	const ano = data.getFullYear();
+// 	const mes = padLeft(data.getMonth() + 1, 2);
+// 	const dia = padLeft(data.getDate(), 2);
+// 	const horas = padLeft(data.getHours(), 2);
+// 	const minutos = padLeft(data.getMinutes(), 2);
+// 	const segundos = padLeft(data.getSeconds(), 2);
 
-	return `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
-}
+// 	return `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+// }
 
-function padLeft(valor, largura, caractere = '0') {
-	return String(valor).padStart(largura, caractere);
-}
+// function padLeft(valor, largura, caractere = '0') {
+// 	return String(valor).padStart(largura, caractere);
+// }
 
-const dataAtual = new Date();
+// const dataAtual = new Date();
 
-const dataFormatada = formatarData(dataAtual);
+// const dataFormatada = formatarData(dataAtual);
 
-const testResults = {
-	idealCourse: coursesAffinity[0].name,
-	adm: ADM,
-	ds: DS,
-	meca: MECA,
-	edf: EDF,
-	dateTime: dataFormatada
-}
+// const testResults = {
+// 	idealCourse: coursesAffinity[0].name,
+// 	adm: ADM,
+// 	ds: DS,
+// 	meca: MECA,
+// 	edf: EDF,
+// 	dateTime: dataFormatada
+// }
 
-if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wrapper').innerHTML = `<div class="icon-wrapper">
+if (idealCourse == 'ds') document.querySelector('div.course-badge-wrapper').innerHTML = `<div class="icon-wrapper">
 <img class="crown-icon" src="./assets/crown-solid.svg">
 </div>
 <h1 class="badge course-badge">O melhor curso!</h1>`
 
-fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json'
-	}
-}).then(response => response.json()).then(data => console.log(data))
+// fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+// 	method: 'POST',
+// 	headers: {
+// 		'Content-Type': 'application/json'
+// 	}
+// }).then(response => response.json()).then(data => console.log(data))
 
-setTimeout(() => {
-	fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json'
-	},
-	body: JSON.stringify(testResults)
-	}).then(response => response.json()).then(data => console.log(data))
-}, 3000);
+// setTimeout(() => {
+// 	fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+// 	method: 'POST',
+// 	headers: {
+// 		'Content-Type': 'application/json'
+// 	},
+// 	body: JSON.stringify(testResults)
+// 	}).then(response => response.json()).then(data => console.log(data))
+// }, 3000);
 
 // fetch('http://localhost:8080/', {
 // 	method: 'POST',
@@ -113,14 +117,13 @@ setTimeout(() => {
 // 	body: JSON.stringify(testResults)
 // }).then(response => response.json()).then(data => console.log(data))
 
-const idealCourse = coursesAffinity[0].name
-const idealFullCourse = coursesAffinity[0].fullName
+// const idealCourse = coursesAffinity[0].name
+// const idealFullCourse = coursesAffinity[0].fullName
 
 courseImageElement.src = `./assets/${idealCourse}.png`
-console.log(courseImageElement);
 courseDescriptionElement.innerHTML = coursesInfo[coursesInfo.indexOf(idealFullCourse)]
 
-coursesInfo.forEach(c => { if (c.course == idealFullCourse) courseDescriptionElement.innerHTML = c.content })
+coursesInfo.forEach(c => {if (c.course == idealFullCourse) courseDescriptionElement.innerHTML = c.content })
 
 coursesAffinity.map(c => {
 	coursesDataWrapper.innerHTML += `

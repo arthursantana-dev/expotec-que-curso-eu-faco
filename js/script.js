@@ -55,12 +55,12 @@ function shuffleArray(array) {
 
 const data = shuffleArray(fixedData)
 
-setInterval(fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json'
-	}
-}).then(response => response.json()).then(data => console.log(data)), 10000)
+// setInterval(fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+// 	method: 'POST',
+// 	headers: {
+// 		'Content-Type': 'application/json'
+// 	}
+// }).then(response => response.json()).then(data => console.log(data)), 10000)
 
 
 const main = document.querySelector('main')
@@ -205,10 +205,136 @@ function calculateCourse() {
 
 	document.querySelector('div#div-submit').innerHTML = "<div class='loader'></div>"
 
+	//result
+
+	// const urlParams = new URLSearchParams(window.location.search)
+
+	// const ADM = urlParams.get('adm')
+	// const DS = urlParams.get('ds')
+	// const MECA = urlParams.get('meca')
+	// const EDF = urlParams.get('edf')
+
+	// const coursesDataWrapper = document.querySelector('section.courses-data')
+	// const courseImageElement = document.querySelector('img.main__img__img')
+	// const courseDescriptionElement = document.querySelector('p.course-description')
+
+	// const coursesInfo = [
+	// 	{
+	// 		course: "Administração",
+	// 		content: `A Administração é uma área que exige habilidades diversas, como <strong>organização, tomada de decisões, habilidades interpessoais e visão estratégica</strong>. Sua capacidade de <strong>lidar com desafios, sua proatividade e sua habilidade para trabalhar bem em equipe</strong> certamente serão ativos valiosos ao longo do curso e em sua futura carreira na área.<br><br>Ao escolher Administração, você está se preparando para <strong>enfrentar os desafios dinâmicos do mundo dos negócios e contribuir para o sucesso de organizações</strong>. A Etec é um ambiente propício para o desenvolvimento de suas habilidades e conhecimentos, e estou confiante de que você aproveitará ao máximo essa oportunidade.`
+	// 	}, {
+	// 		course: "Desenvolvimento de Sistemas",
+	// 		content: `O Desenvolvimento de Sistemas é uma área fascinante e dinâmica, e estou certo de que suas habilidades e características pessoais se alinham perfeitamente com as demandas desse campo. A capacidade de <strong>resolver problemas, a criatividade na criação de soluções, a paciência para depurar códigos complexos e a habilidade de trabalhar em equipe</strong> são aspectos fundamentais para o sucesso nesse curso, e estou confiante de que você os possui.<br><br>Além disso, a <strong>dedicação e o comprometimento</strong> que você demonstrou ao realizar o teste são indicativos claros de que você está disposto a enfrentar desafios e a se aprimorar constantemente. O Desenvolvimento de Sistemas é uma área que exige aprendizado contínuo, e sua atitude positiva em relação aos desafios será uma grande vantagem ao longo de sua jornada acadêmica e profissional.`
+	// 	}, {
+	// 		course: "Edificações",
+	// 		content: `Sua escolha por Edificações revela não apenas um interesse em <strong>construção e design</strong>, mas também uma habilidade inata para compreender e trabalhar com estruturas. Este campo exige precisão, criatividade e uma mente analítica, e estou confiante de que você possui todas essas qualidades.<br><br>A área de Edificações é essencial para o desenvolvimento e aprimoramento das cidades, contribuindo para a construção de infraestruturas sólidas e ambientes funcionais. Ao escolher esse curso, você está se posicionando para desempenhar um <strong>papel crucial na sociedade</strong>, moldando o ambiente ao nosso redor.`
+	// 	}, {
+	// 		course: "Mecatrônica",
+	// 		content: `Sua afinidade com Mecatrônica destaca sua habilidade em lidar com desafios que exigem uma abordagem multidisciplinar. Este curso combina elementos da <strong>engenharia mecânica, eletrônica e de controle</strong>, e tenho certeza de que sua capacidade de pensar de forma holística será uma vantagem valiosa.<br><br>Além disso, Mecatrônica exige <strong>criatividade e inovação</strong>, e estou certo de que você trará ideias frescas para resolver problemas complexos. Sua dedicação aos estudos e o interesse demonstrado na interseção entre mecânica e eletrônica são qualidades que certamente o destacarão no curso.`
+	// 	}
+	// ]
+
+	const coursesAffinity = [
+		{
+			name: 'adm',
+			fullName: 'Administração',
+			affinity: parseFloat(ADMPercentage)
+		},
+		{
+			name: 'ds',
+			fullName: 'Desenvolvimento de Sistemas',
+			affinity: parseFloat(DSPercentage)
+		},
+		{
+			name: 'meca',
+			fullName: 'Mecatrônica',
+			affinity: parseFloat(MECAPercentage)
+		},
+		{
+			name: 'edf',
+			fullName: 'Edificações',
+			affinity: parseFloat(EDFPercentage)
+		}
+
+	]
+
+	coursesAffinity.sort((a, b) => {
+		if (b.affinity - a.affinity != 0) return b.affinity - a.affinity
+
+		return Math.random() - 0.5
+	})
+
+	function formatarData(data) {
+		const ano = data.getFullYear();
+		const mes = padLeft(data.getMonth() + 1, 2);
+		const dia = padLeft(data.getDate(), 2);
+		const horas = padLeft(data.getHours(), 2);
+		const minutos = padLeft(data.getMinutes(), 2);
+		const segundos = padLeft(data.getSeconds(), 2);
+
+		return `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+	}
+
+	function padLeft(valor, largura, caractere = '0') {
+		return String(valor).padStart(largura, caractere);
+	}
+
+	const dataAtual = new Date();
+
+	const dataFormatada = formatarData(dataAtual);
+
+	const testResults = {
+		idealCourse: coursesAffinity[0].name,
+		idealCourseFullName: coursesAffinity[0].fullName,
+		adm: parseFloat(ADMPercentage),
+		ds: parseFloat(DSPercentage),
+		meca:  parseFloat(MECAPercentage),
+		edf: parseFloat(EDFPercentage),
+		dateTime: dataFormatada
+	}
+
+	// const testResults = {
+	// 	idealCourse: 'ds',
+	// 	adm: 4,
+	// 	ds: 4,
+	// 	meca:  4,
+	// 	edf: 4,
+	// 	dateTime: '2023'
+	// }
+
+	localStorage.setItem('testInfo', JSON.stringify(testResults))
+
+// 	if (testResults.idealCourse == 'ds') document.querySelector('div.course-badge-wrapper').innerHTML = `<div class="icon-wrapper">
+// <img class="crown-icon" src="./assets/crown-solid.svg">
+// </div>
+// <h1 class="badge course-badge">O melhor curso!</h1>`
+
+	fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	}).then(response => response.json()).then(data => console.log(`Aquecimento da API: ${data}`))
+
+	// setTimeout(() => {
+		
+	// }, 3000);
+
+	//end result
+
 	setTimeout(() => {
-		window.location.href = `./result.html?adm=${ADMPercentage}&ds=${DSPercentage}&meca=${MECAPercentage}&edf=${EDFPercentage}`;
-	}, 1500);
+		fetch('https://qcef-api-arthur-santanas-projects.vercel.app', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(testResults)
+		}).then(response => response.json()).then(data => console.log(data))
+	}, 3000);
 
-
+	setTimeout(() => {
+		window.location.href = `./result.html?ideal-course=${coursesAffinity[0].name}`
+	}, 3200);
+	
 
 }
