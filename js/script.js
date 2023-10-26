@@ -66,7 +66,7 @@ const data = shuffleArray(fixedData)
 const main = document.querySelector('main')
 const submitButton = document.querySelector('#submit-button')
 
-let radioButtonToAnswerId = 0
+let radioButtonToAnswerId = 1
 
 data.map((q, i) => {
 	let maxName = ""
